@@ -112,6 +112,7 @@ int main(void) {
 			}
 
 		}while(exitOut == 'n');
+		pause();
 	}
 
 	return EXIT_SUCCESS;
