@@ -3,15 +3,7 @@
 
 #include "LinkedList.h"
 #define NAME_LEN 128
-#define TIPO_LEN 128
 
-typedef struct
-{
-    int id_bike;
-    char nombre[NAME_LEN];
-    char tipo[TIPO_LEN];//cuatro tipos
-    int tiempo;
-}eBicicleta;
 
 typedef struct
 {
