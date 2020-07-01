@@ -26,93 +26,93 @@ int main(void) {
 	LinkedList* listaPandemia = ll_newLinkedList();
 	srand(time(NULL));
 
-	do{
-		system("clear");
-		switch(menu())
-		{
-			case 1:
-				if(flagText == 0)
-				{
-					if(!utn_getPath(path, 200, 2, "Ingrese el nombre del archivo con su extension: ", "Error, invalido\n"))
+	if(listaPandemia != NULL)
+	{
+		do{
+			system("clear");
+			switch(menu())
+			{
+				case 1:
+					if(flagText == 0)
 					{
-						if(!controller_loadFromText(path, listaPandemia))
+						if(!utn_getPath(path, 200, 2, "Ingrese el nombre del archivo con su extension: ", "Error, invalido\n"))
 						{
-							flagText = 1;
+							if(!controller_loadFromText(path, listaPandemia))
+							{
+								flagText = 1;
+							}
 						}
 					}
-				}
-				else
-				{
-					printf("Archivo ya cargado\n");
-				}
+					else
+					{
+						printf("Archivo ya cargado\n");
+					}
 
-				break;
-			case 2:
-				//imprimir
-				if(flagText == 1)
-				{
-					controller_ListPaises(listaPandemia);
-				}
-				else
-				{
-					printf("Error. Aun no se cargo ningun archivo.\n");
-				}
-				break;
-			case 3:
-				//asignar
-				if(flagText == 1)
-				{
-					controller_map(listaPandemia);
-					flagMap = 1;
-				}
-				else
-				{
-					printf("Error. Aun no se cargo ningun archivo.\n");
-				}
-				break;
-			case 4:
-				//filtrar
-				if(flagText == 1 && flagMap == 1)
-				{
-					controller_filter(listaPandemia);
-				}
-				else
-				{
-					printf("Error. Aun no se cargo ningun archivo.\n");
-				}
-				break;
-			case 5:
-				//Ordenar
-				if(flagText == 1 && flagMap == 1)
-				{
-					controller_sortPaises(listaPandemia);
-				}
-				else
-				{
-					printf("Error. Aun no se cargo ningun archivo.\n");
-				}
-				break;
-			case 6:
-				//Informar el nombre del país o países con el mayor número de muertos. Y cuál es ese número.
-				if(flagText == 1 && flagMap == 1)
-				{
-					controller_paisConMasMuertos(listaPandemia);
-				}
-				else
-				{
-					printf("Error, primero ordenar por tipo\n");
-				}
-				break;
+					break;
+				case 2:
+					//imprimir
+					if(flagText == 1)
+					{
+						controller_ListPaises(listaPandemia);
+					}
+					else
+					{
+						printf("Error. Aun no se cargo ningun archivo.\n");
+					}
+					break;
+				case 3:
+					//asignar
+					if(flagText == 1)
+					{
+						controller_map(listaPandemia);
+						flagMap = 1;
+					}
+					else
+					{
+						printf("Error. Aun no se cargo ningun archivo.\n");
+					}
+					break;
+				case 4:
+					//filtrar
+					if(flagText == 1 && flagMap == 1)
+					{
+						controller_filter(listaPandemia);
+					}
+					else
+					{
+						printf("Error. Aun no se cargo ningun archivo.\n");
+					}
+					break;
+				case 5:
+					//Ordenar
+					if(flagText == 1 && flagMap == 1)
+					{
+						controller_sortPaises(listaPandemia);
+					}
+					else
+					{
+						printf("Error. Aun no se cargo ningun archivo.\n");
+					}
+					break;
+				case 6:
+					//Informar el nombre del país o países con el mayor número de muertos. Y cuál es ese número.
+					if(flagText == 1 && flagMap == 1)
+					{
+						controller_paisConMasMuertos(listaPandemia);
+					}
+					else
+					{
+						printf("Error, primero ordenar por tipo\n");
+					}
+					break;
 
-			case 7:
-				exitOut = 's';
-				break;
-		}
+				case 7:
+					exitOut = 's';
+					break;
+			}
 
-	}while(exitOut == 'n');
-
-
-
+		}while(exitOut == 'n');
+	}
 
 	return EXIT_SUCCESS;
 }
