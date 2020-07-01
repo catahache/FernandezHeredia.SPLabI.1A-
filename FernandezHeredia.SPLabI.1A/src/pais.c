@@ -308,7 +308,7 @@ int getRandomRecup()
 {
     int aleatorio;
     //50000 y 1000000
-    aleatorio = rand()%(50001) + 950000;
+    aleatorio = rand()%(50001 + 950000);
 
     return aleatorio;
 }
@@ -330,7 +330,7 @@ int getRandomInfectados()
 {
     int aleatorio;
     //40000 y 2000000
-    aleatorio = rand()% (40001) + 1960000;
+    aleatorio = rand()% (40001 + 1960000);
 
     return aleatorio;
 }
@@ -352,7 +352,7 @@ int getRandomMuertos()
 {
     int aleatorio;
     //1000 y 50000
-    aleatorio = rand()%(1001) + 49000;
+    aleatorio = rand()%(1001 + 49000);
 
     return aleatorio;
 }
