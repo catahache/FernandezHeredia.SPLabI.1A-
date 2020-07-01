@@ -174,26 +174,44 @@ int controller_filter(LinkedList* pArrayListPaises)
 }
 
 
-
 int controller_paisConMasMuertos(LinkedList* pArrayListPaises)
 {
-	int retorno = -1;
+    int retorno = -1;
+    ePais* pPais = NULL;
+    int cantidadMayor;
+    int cantidadMuertos;
+    int flag = 0;
+    LinkedList* pNuevoArray = NULL;
+    pNuevoArray = ll_newLinkedList();
 
-	if(pArrayListPaises != NULL)
-	{
-		if(pais_compararPaises(pArrayListPaises) == 0)
-		{
+    if(pArrayListPaises != NULL && pNuevoArray != NULL)
+    {
+        for(int i = 0; i < ll_len(pArrayListPaises); i++)
+        {
+        	pPais = (ePais*) ll_get(pArrayListPaises, i);//traigo el pais
+            pais_getMuertos(pPais, &cantidadMuertos);//traigo la cant muertos del pais
+            if(flag == 0 || cantidadMuertos > cantidadMayor)
+            {
+            	cantidadMayor = cantidadMuertos;
+				flag = 1;
+            }
+        }
+        for(int i = 0; i < ll_len(pArrayListPaises); i++)
+        {
+        	pPais = (ePais*) ll_get(pArrayListPaises, i);//traigo el pais
+        	pais_getMuertos(pPais, &cantidadMuertos);//traigo la cant muertos del pais
+        	if(cantidadMuertos == cantidadMayor)
+        	{
+        		ll_add(pNuevoArray, pPais);
+        		retorno = 0;
+        	}
+        }
 
-		}
-		else
-		{
-			printf("Error en la funcion pais_compararPaises.\n");
-		}
-	}
-	else
-	{
-		printf("Error\n");
-	}
+        printf("Paises con mas muertos \n");
+        controller_ListPaises(pNuevoArray);
+
+    }
+
 
     return retorno;
 }

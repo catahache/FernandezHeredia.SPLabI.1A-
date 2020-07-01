@@ -31,13 +31,21 @@ int main(void) {
 		switch(menu())
 		{
 			case 1:
-				if(!utn_getPath(path, 200, 2, "Ingrese el nombre del archivo con su extension: ", "Error, invalido\n"))
+				if(flagText == 0)
 				{
-					if(!controller_loadFromText(path, listaPandemia))
+					if(!utn_getPath(path, 200, 2, "Ingrese el nombre del archivo con su extension: ", "Error, invalido\n"))
 					{
-						flagText = 1;
+						if(!controller_loadFromText(path, listaPandemia))
+						{
+							flagText = 1;
+						}
 					}
 				}
+				else
+				{
+					printf("Archivo ya cargado\n");
+				}
+
 				break;
 			case 2:
 				//imprimir

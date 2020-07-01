@@ -600,3 +600,5 @@ void* ll_declareMax(LinkedList* this, int (*pFunc) (void* ,void*)) //devuelve un
 	}//if null
 	return max;
 }
+
+

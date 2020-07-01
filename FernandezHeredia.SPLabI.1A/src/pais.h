@@ -169,8 +169,6 @@ int paises_filtrarHorno(void* pais);
 
 int pais_sortByInfectados(void* firstPais, void* secondPais);
 
-int pais_compararPaisConMasMuertos(void* firstPais, void* secondPais);
 
-int pais_compararPaises(LinkedList* pArrayListPaises);
 
 #endif // book_H_INCLUDED
