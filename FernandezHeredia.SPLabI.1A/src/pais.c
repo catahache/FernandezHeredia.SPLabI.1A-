@@ -220,19 +220,19 @@ int pais_printPais(LinkedList* pArrayListPaises, int index)
 		{
 			if(auxId > 0 && auxId < 10)
 			{
-				printf(" [000%d]    -> %-20s    [%4d]     [%4d]     [%4d]\n", auxId, auxNombre, auxRecup, auxInfec, auxMuertos);
+				printf(" [000%d]    -> %-20s    [%7d]     [%7d]     [%7d]\n", auxId, auxNombre, auxRecup, auxInfec, auxMuertos);
 			}
 			else if(auxId > 9 && auxId < 100)
 			{
-				printf(" [00%d]    -> %-20s    [%4d]     [%4d]     [%4d]\n", auxId, auxNombre, auxRecup, auxInfec, auxMuertos);
+				printf(" [00%d]    -> %-20s    [%7d]     [%7d]     [%7d]\n", auxId, auxNombre, auxRecup, auxInfec, auxMuertos);
 			}
 			else if(auxId > 99 && auxId < 1000)
 			{
-				printf(" [0%d]    -> %-20s    [%4d]     [%4d]     [%4d]\n", auxId, auxNombre, auxRecup, auxInfec, auxMuertos);
+				printf(" [0%d]    -> %-20s    [%7d]     [%7d]     [%7d]\n", auxId, auxNombre, auxRecup, auxInfec, auxMuertos);
 			}
 			else
 			{
-				printf(" [%4d]    -> %-20s    [%4d]     [%4d]     [%4d]\n", auxId, auxNombre, auxRecup, auxInfec, auxMuertos);
+				printf(" [%4d]    -> %-20s    [%7d]     [%7d]     [%7d]\n", auxId, auxNombre, auxRecup, auxInfec, auxMuertos);
 			}
 			retorno = 0;
 		}
